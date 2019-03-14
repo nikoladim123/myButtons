@@ -1,3 +1,7 @@
+body{
+  padding-bottom: 15vw;
+  /* transform-style: preserve-3d; */
+}
 button:hover{
   cursor: pointer;
 }
@@ -275,6 +279,7 @@ button:hover{
 }
 
 .btnB {
+  border-radius: 15px;
   display: block;
   height: 50px;
   width: 186px;
@@ -309,4 +314,49 @@ button:hover{
 .btnB span {
   position: relative;
   top: 16px;
+}
+/* button C */
+.btnC {
+  margin-top: 2vw;
+  position: relative;
+  display: inline-block;
+  padding: 1.2em 2em;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+}
+.btnC::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  border-radius: 4px;
+  transition: box-shadow .5s ease, -webkit-transform .2s ease;
+  transition: box-shadow .5s ease, transform .2s ease;
+  transition: box-shadow .5s ease, transform .2s ease, -webkit-transform .2s ease;
+  will-change: transform;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateY(var(--ty, 0)) rotateX(var(--rx, 0)) rotateY(var(--ry, 0)) translateZ(var(--tz, -12px));
+          transform: translateY(var(--ty, 0)) rotateX(var(--rx, 0)) rotateY(var(--ry, 0)) translateZ(var(--tz, -12px));
+}
+.btnC:hover::before {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.btnC::after {
+  position: relative;
+  display: inline-block;
+  content: attr(data-title);
+  transition: -webkit-transform .2s ease;
+  transition: transform .2s ease;
+  transition: transform .2s ease, -webkit-transform .2s ease;
+  font-weight: bold;
+  letter-spacing: .01em;
+  will-change: transform;
+  -webkit-transform: translateY(var(--ty, 0)) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
+          transform: translateY(var(--ty, 0)) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
 }
